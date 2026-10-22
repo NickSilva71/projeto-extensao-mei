@@ -9,9 +9,9 @@
 
 ## 📌 Contexto e Aplicação do Projeto
 
-O projeto foi concebido para atender às necessidades reais do Microempreendedor Individual (MEI) atuante no segmento de **Promoção de Vendas** (CNAE 7319-0/02)[cite: 4] com forma de atuação registrada prioritariamente via **Internet**.
+O projeto foi concebido para atender às necessidades reais do Microempreendedor Individual (MEI) atuante no segmento de **Promoção de Vendas** (CNAE 7319-0/02) com forma de atuação registrada prioritariamente via **Internet**.
 
-Sediado no município de **Paudalho - PE** (Chã de Cruz), o empreendimento opera na Região Metropolitana e na Zona da Mata Norte de Pernambuco. Por atuar no modelo *Business-to-Business* (B2B), a empresa necessita de ferramentas digitais próprias para prospectar clientes corporativos (marcas, comércios e supermercados), apresentar histórico de ações promocionais e emitir orçamentos formais de maneira profissional.
+Sediado no município de **Paudalho - PE** (Chã de Cruz), o empreendimento opera na Região Metropolitana e na Zona da Mata Norte de Pernambuco, oferecendo serviços aos pequenos comerciantes da cidade. Por atuar no modelo *Business-to-Business* (B2B), a empresa necessita de ferramentas digitais próprias para prospectar clientes corporativos (marcas, comércios e supermercados), apresentar histórico de ações promocionais e emitir orçamentos formais de maneira profissional.
 
 ---
 
