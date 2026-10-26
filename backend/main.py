@@ -136,3 +136,73 @@ def deletar_proposta(proposta_id: int, db: Session = Depends(get_db)):
     db.delete(proposta)
     db.commit()
     return {"mensagem": "Proposta excluída com sucesso"}
+
+# --- ESQUEMAS PARA ATUALIZAÇÃO (PUT) ---
+
+class ClienteUpdate(BaseModel):
+    nome_empresa: str
+    pessoa_contato: str
+    email: str
+    telefone: Optional[str] = None
+    status: Optional[str] = "Lead"
+
+class CampanhaUpdate(BaseModel):
+    titulo_acao: str
+    descricao: str
+    resultados_obtidos: Optional[str] = None
+    data_realizacao: str
+    visivel_publico: Optional[bool] = True
+
+class PropostaUpdate(BaseModel):
+    cliente_id: int
+    descricao_servico: str
+    valor_proposta: float
+    data_validade: Optional[str] = None
+    status: Optional[str] = "Pendente"
+
+# --- ROTAS DE EDIÇÃO (PUT) ---
+
+@app.put("/api/clientes/{cliente_id}")
+def atualizar_cliente(cliente_id: int, cliente_data: ClienteUpdate, db: Session = Depends(get_db)):
+    cliente = db.query(models.Cliente).filter(models.Cliente.id == cliente_id).first()
+    if not cliente:
+        raise HTTPException(status_code=404, detail="Cliente não encontrado")
+    
+    # Extrai os dados enviados na requisição
+    dados = cliente_data.model_dump() if hasattr(cliente_data, 'model_dump') else cliente_data.dict()
+    for chave, valor in dados.items():
+        setattr(cliente, chave, valor)
+        
+    db.commit()
+    db.refresh(cliente)
+    return cliente
+
+
+@app.put("/api/campanhas/{campanha_id}")
+def atualizar_campanha(campanha_id: int, campanha_data: CampanhaUpdate, db: Session = Depends(get_db)):
+    campanha = db.query(models.Campanha).filter(models.Campanha.id == campanha_id).first()
+    if not campanha:
+        raise HTTPException(status_code=404, detail="Campanha não encontrada")
+    
+    dados = campanha_data.model_dump() if hasattr(campanha_data, 'model_dump') else campanha_data.dict()
+    for chave, valor in dados.items():
+        setattr(campanha, chave, valor)
+        
+    db.commit()
+    db.refresh(campanha)
+    return campanha
+
+
+@app.put("/api/propostas/{proposta_id}")
+def atualizar_proposta(proposta_id: int, proposta_data: PropostaUpdate, db: Session = Depends(get_db)):
+    proposta = db.query(models.Proposta).filter(models.Proposta.id == proposta_id).first()
+    if not proposta:
+        raise HTTPException(status_code=404, detail="Proposta não encontrada")
+    
+    dados = proposta_data.model_dump() if hasattr(proposta_data, 'model_dump') else proposta_data.dict()
+    for chave, valor in dados.items():
+        setattr(proposta, chave, valor)
+        
+    db.commit()
+    db.refresh(proposta)
+    return proposta

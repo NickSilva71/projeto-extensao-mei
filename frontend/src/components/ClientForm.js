@@ -29,42 +29,62 @@ export default function ClientForm({ onAdicionado }) {
         setPessoaContato('');
         setEmail('');
         setTelefone('');
-        onAdicionado(); // Chama a função para atualizar a lista na tela principal
-        alert('Cliente cadastrado com sucesso!');
-      } else {
-        alert('Erro ao cadastrar cliente.');
+        onAdicionado();
       }
     } catch (err) {
-      alert('Erro de conexão com o back-end.');
+      console.error(err);
     }
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md border h-fit">
-      <h2 className="text-xl font-semibold mb-4 text-blue-700">Novo Cliente</h2>
+    <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-slate-200/80">
+      <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-3">
+        <div className="w-2 h-6 bg-gradient-to-b from-indigo-500 to-violet-600 rounded-full" />
+        <h2 className="text-lg font-bold text-slate-800">Novo Cliente</h2>
+      </div>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Nome da Empresa *</label>
-          <input type="text" required value={nomeEmpresa} onChange={(e) => setNomeEmpresa(e.target.value)}
-            className="w-full border rounded p-2" placeholder="Ex: Supermercado Todo Dia" />
+          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Empresa *</label>
+          <input 
+            type="text" required value={nomeEmpresa} onChange={(e) => setNomeEmpresa(e.target.value)}
+            className="w-full border border-slate-200 rounded-xl p-2.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition" 
+            placeholder="Ex: Tech Solutions" 
+          />
         </div>
+
         <div>
-          <label className="block text-sm font-medium mb-1">Pessoa de Contato *</label>
-          <input type="text" required value={pessoaContato} onChange={(e) => setPessoaContato(e.target.value)}
-            className="w-full border rounded p-2" placeholder="Ex: João Silva (Gerente)" />
+          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Contato *</label>
+          <input 
+            type="text" required value={pessoaContato} onChange={(e) => setPessoaContato(e.target.value)}
+            className="w-full border border-slate-200 rounded-xl p-2.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition" 
+            placeholder="Ex: Ana Souza" 
+          />
         </div>
+
         <div>
-          <label className="block text-sm font-medium mb-1">E-mail *</label>
-          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-            className="w-full border rounded p-2" placeholder="contato@empresa.com" />
+          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">E-mail *</label>
+          <input 
+            type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+            className="w-full border border-slate-200 rounded-xl p-2.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition" 
+            placeholder="contato@empresa.com" 
+          />
         </div>
+
         <div>
-          <label className="block text-sm font-medium mb-1">Telefone / WhatsApp</label>
-          <input type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)}
-            className="w-full border rounded p-2" placeholder="(81) 90000-0000" />
+          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Telefone</label>
+          <input 
+            type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)}
+            className="w-full border border-slate-200 rounded-xl p-2.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition" 
+            placeholder="(81) 90000-0000" 
+          />
         </div>
-        <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
-          Salvar Cliente
+
+        <button 
+          type="submit" 
+          className="w-full mt-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-semibold py-3 px-4 rounded-xl transition-all shadow-md shadow-indigo-500/20 active:scale-[0.98]"
+        >
+          Cadastrar Cliente
         </button>
       </form>
     </div>
