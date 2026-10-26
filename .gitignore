@@ -3,3 +3,7 @@ backend/__pycache__/
 backend/mei_b2b.db
 frontend/node_modules/
 frontend/.next/
+*.pyc
+*.sqlite
+.env
+.env.local
