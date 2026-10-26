@@ -1,5 +1,5 @@
 import './globals.css';
-import Navbar from '../components/Navbar'; // Importação do componente
+import Navbar from '../components/Navbar';
 
 export const metadata = {
   title: 'Portal B2B | Dário Faustino',
@@ -9,9 +9,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-gray-50 text-gray-900 antialiased">
+      <body className="bg-gray-100 text-gray-900 antialiased min-h-screen">
         <Navbar />
-        {/* Conteúdo dinâmico de cada página */}
         {children}
       </body>
     </html>
