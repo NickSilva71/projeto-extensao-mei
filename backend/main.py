@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List, Optional
@@ -13,6 +14,15 @@ app = FastAPI(
     title="API MEI - Promoção de Vendas B2B",
     description="Sistema completo de gestão de portfólio, CRM e geração de propostas",
     version="1.0.0"
+)
+
+# Configuração de CORS para permitir que o Front-end faça requisições para a API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite chamadas de qualquer origem em ambiente de desenvolvimento
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Injeção de dependência do banco de dados
@@ -50,7 +60,7 @@ class PropostaCreate(BaseModel):
 
 @app.get("/")
 def home():
-    return {"mensagem": "API MEI B2B rodando com banco de dados completo!"}
+    return {"mensagem": "API MEI B2B rodando com suporte a CORS!"}
 
 # --- ROTAS DE CLIENTES (CRM) ---
 
@@ -70,7 +80,6 @@ def criar_cliente(cliente: ClienteCreate, db: Session = Depends(get_db)):
 
 @app.get("/api/campanhas")
 def listar_campanhas(db: Session = Depends(get_db)):
-    # Retorna apenas as campanhas marcadas como visíveis ao público
     return db.query(models.Campanha).filter(models.Campanha.visivel_publico == True).all()
 
 @app.post("/api/campanhas")
@@ -89,7 +98,6 @@ def listar_propostas(db: Session = Depends(get_db)):
 
 @app.post("/api/propostas")
 def criar_proposta(proposta: PropostaCreate, db: Session = Depends(get_db)):
-    # Verifica se o cliente existe antes de criar a proposta
     cliente_existe = db.query(models.Cliente).filter(models.Cliente.id == proposta.cliente_id).first()
     if not cliente_existe:
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
