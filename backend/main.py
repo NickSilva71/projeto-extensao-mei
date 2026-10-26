@@ -107,3 +107,32 @@ def criar_proposta(proposta: PropostaCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(nova_proposta)
     return nova_proposta
+
+# --- ROTAS DE EXCLUSÃO (DELETE) ---
+
+@app.delete("/api/clientes/{cliente_id}")
+def deletar_cliente(cliente_id: int, db: Session = Depends(get_db)):
+    cliente = db.query(models.Cliente).filter(models.Cliente.id == cliente_id).first()
+    if not cliente:
+        raise HTTPException(status_code=404, detail="Cliente não encontrado")
+    db.delete(cliente)
+    db.commit()
+    return {"mensagem": "Cliente excluído com sucesso"}
+
+@app.delete("/api/campanhas/{campanha_id}")
+def deletar_campanha(campanha_id: int, db: Session = Depends(get_db)):
+    campanha = db.query(models.Campanha).filter(models.Campanha.id == campanha_id).first()
+    if not campanha:
+        raise HTTPException(status_code=404, detail="Campanha não encontrada")
+    db.delete(campanha)
+    db.commit()
+    return {"mensagem": "Campanha excluída com sucesso"}
+
+@app.delete("/api/propostas/{proposta_id}")
+def deletar_proposta(proposta_id: int, db: Session = Depends(get_db)):
+    proposta = db.query(models.Proposta).filter(models.Proposta.id == proposta_id).first()
+    if not proposta:
+        raise HTTPException(status_code=404, detail="Proposta não encontrada")
+    db.delete(proposta)
+    db.commit()
+    return {"mensagem": "Proposta excluída com sucesso"}
