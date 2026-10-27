@@ -60,7 +60,7 @@ O banco de dados relacional é composto por três tabelas principais:
 
 ```bash
 # 1. Clonar o repositório
-git clone [https://github.com/SEU-USUARIO/projeto-extensao-mei.git](https://github.com/SEU-USUARIO/projeto-extensao-mei.git)
+git clone(https://github.com/NickSilva71/projeto-extensao-mei.git)
 
 # 2. Acessar a pasta do backend
 cd projeto-extensao-mei/backend
