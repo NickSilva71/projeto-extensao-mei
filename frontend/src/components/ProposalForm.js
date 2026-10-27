@@ -59,7 +59,9 @@ export default function ProposalForm({ clientes, onAdicionado }) {
           <textarea required value={descricaoServico} onChange={(e) => setDescricaoServico(e.target.value)}
             className="w-full border border-slate-200 rounded-xl p-2.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition" rows="3" placeholder="Ação no PDV, degustação..." />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        
+        {/* AJUSTE AQUI: 1 Coluna mobile, 2 colunas desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Valor (R$) *</label>
             <input type="number" step="0.01" required value={valorProposta} onChange={(e) => setValorProposta(e.target.value)}
@@ -71,6 +73,7 @@ export default function ProposalForm({ clientes, onAdicionado }) {
               className="w-full border border-slate-200 rounded-xl p-2.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500/20 outline-none transition" />
           </div>
         </div>
+        
         <button type="submit" className="w-full mt-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold py-3 px-4 rounded-xl transition-all shadow-md shadow-emerald-500/20 active:scale-[0.98]">
           Gerar Proposta
         </button>
