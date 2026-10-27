@@ -1,4 +1,4 @@
-# 🚀 Portal B2B & CRM para Promoção de Vendas (MEI)
+# Portal B2B & CRM para Promoção de Vendas (MEI)
 
 > **Projeto de Extensão Universitária**  
 > **Disciplina:** Atividades Práticas Interdisciplinares de Extensão IV  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 Contexto e Aplicação do Projeto
+## Contexto e Aplicação do Projeto
 
 O projeto foi concebido para atender às necessidades reais do Microempreendedor Individual (MEI) atuante no segmento de **Promoção de Vendas** (CNAE 7319-0/02) com forma de atuação registrada prioritariamente via **Internet**.
 
@@ -15,7 +15,7 @@ Sediado no município de **Paudalho - PE** (Chã de Cruz), o empreendimento oper
 
 ---
 
-## 🎯 Objetivos
+## Objetivos
 
 ### Objetivo Geral
 Desenvolver e implantar um **Portal Web de Portfólio B2B** integrado a um **Gerador de Propostas Comerciais** e um **CRM Simplificado**, promovendo a inclusão digital, a autonomia comercial e a modernização operacional do MEI.
@@ -28,7 +28,7 @@ Desenvolver e implantar um **Portal Web de Portfólio B2B** integrado a um **Ger
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Back-end & Banco de Dados
 * **Python 3.10+** — Linguagem principal de desenvolvimento.
@@ -41,7 +41,7 @@ Desenvolver e implantar um **Portal Web de Portfólio B2B** integrado a um **Ger
 
 ---
 
-## 🗂️ Estrutura da Base de Dados
+## Estrutura da Base de Dados
 
 O banco de dados relacional é composto por três tabelas principais:
 1. `clientes_corporativos` — Cadastro e acompanhamento de funil de vendas (CRM).
@@ -50,7 +50,12 @@ O banco de dados relacional é composto por três tabelas principais:
 
 ---
 
-## 💻 Como Executar o Projeto Localmente
+## Link para Documentação
+* https://api-crm-b2b.onrender.com/docs#/
+
+---
+
+## Como Executar o Projeto Localmente
 
 ### Pré-requisitos
 * Python 3.10 ou superior instalado.
