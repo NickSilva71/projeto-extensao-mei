@@ -8,7 +8,7 @@ export default function CampanhasPage() {
   const [carregando, setCarregando] = useState(true);
 
   const buscarCampanhas = () => {
-    fetch('http://127.0.0.1:8000/api/campanhas')
+    fetch('https://api-crm-b2b.onrender.com/api/campanhas')
       .then((res) => res.json())
       .then((data) => {
         setCampanhas(data);
@@ -27,7 +27,7 @@ export default function CampanhasPage() {
   const deletarCampanha = async (id) => {
     if (!window.confirm('Tem certeza que deseja excluir esta campanha?')) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/campanhas/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://api-crm-b2b.onrender.com/api/campanhas/${id}`, { method: 'DELETE' });
       if (res.ok) buscarCampanhas();
     } catch (err) {
       console.error(err);

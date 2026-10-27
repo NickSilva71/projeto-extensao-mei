@@ -20,7 +20,7 @@ export default function CampaignCard({ campanha, onDeletar, onAtualizar }) {
     };
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/campanhas/${campanha.id}`, {
+      const res = await fetch(`https://api-crm-b2b.onrender.com/api/campanhas/${campanha.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(campanhaAtualizada),

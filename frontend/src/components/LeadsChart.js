@@ -48,7 +48,7 @@ export default function LeadsChart({ clientes }) {
               outerRadius={85}
               paddingAngle={5}
               dataKey="valor"
-              nameKey="nome" /* 👈 Esta é a linha que corrige a legenda */
+              nameKey="nome" 
               stroke="none"
             >
               {dadosProcessados.map((entry, index) => (

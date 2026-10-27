@@ -11,8 +11,8 @@ export default function PropostasPage() {
   const carregarDados = async () => {
     try {
       const [resPropostas, resClientes] = await Promise.all([
-        fetch('http://127.0.0.1:8000/api/propostas'),
-        fetch('http://127.0.0.1:8000/api/clientes')
+        fetch('https://api-crm-b2b.onrender.com/api/propostas'),
+        fetch('https://api-crm-b2b.onrender.com/api/clientes')
       ]);
       
       setPropostas(await resPropostas.json());
@@ -31,7 +31,7 @@ export default function PropostasPage() {
   const deletarProposta = async (id) => {
     if (!window.confirm('Tem certeza que deseja excluir esta proposta?')) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/propostas/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://api-crm-b2b.onrender.com/api/propostas/${id}`, { method: 'DELETE' });
       if (res.ok) carregarDados();
     } catch (err) {
       console.error(err);

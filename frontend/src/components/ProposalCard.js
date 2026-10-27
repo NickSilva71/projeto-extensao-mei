@@ -21,7 +21,7 @@ export default function ProposalCard({ proposta, nomeCliente, clientes, onDeleta
     };
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/propostas/${proposta.id}`, {
+      const res = await fetch(`https://api-crm-b2b.onrender.com/api/propostas/${proposta.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(propostaAtualizada),

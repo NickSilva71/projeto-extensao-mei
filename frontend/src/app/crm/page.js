@@ -8,7 +8,7 @@ export default function CRMPage() {
   const [carregando, setCarregando] = useState(true);
 
   const buscarClientes = () => {
-    fetch('http://127.0.0.1:8000/api/clientes')
+    fetch('https://api-crm-b2b.onrender.com/api/clientes')
       .then((res) => res.json())
       .then((data) => {
         setClientes(data);
@@ -27,7 +27,7 @@ export default function CRMPage() {
   const deletarCliente = async (id) => {
     if (!window.confirm('Tem certeza que deseja excluir este cliente?')) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/clientes/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://api-crm-b2b.onrender.com/api/clientes/${id}`, { method: 'DELETE' });
       if (res.ok) buscarClientes();
       else alert('Erro ao excluir cliente.');
     } catch (err) {

@@ -12,9 +12,9 @@ export default function DashboardVitrine() {
     const buscarDadosDashboard = async () => {
       try {
         const [resCampanhas, resClientes, resPropostas] = await Promise.all([
-          fetch('http://127.0.0.1:8000/api/campanhas'),
-          fetch('http://127.0.0.1:8000/api/clientes'),
-          fetch('http://127.0.0.1:8000/api/propostas')
+          fetch('https://api-crm-b2b.onrender.com/api/campanhas'),
+          fetch('https://api-crm-b2b.onrender.com/api/clientes'),
+          fetch('https://api-crm-b2b.onrender.com/api/propostas')
         ]);
         
         const campanhas = await resCampanhas.json();

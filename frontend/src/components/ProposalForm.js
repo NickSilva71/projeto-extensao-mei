@@ -18,7 +18,7 @@ export default function ProposalForm({ clientes, onAdicionado }) {
     };
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/propostas', {
+      const res = await fetch('https://api-crm-b2b.onrender.com/api/propostas', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(novaProposta),
